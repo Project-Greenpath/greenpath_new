@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 const getUsers = async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     try {
-        const results = await pool.query("SELECT * FROM users");
+        const results = await pool.query("SELECT * FROM students");
         return res.status(200).json(results);
     } catch (error) {
         return res.status(500).json({ error });
