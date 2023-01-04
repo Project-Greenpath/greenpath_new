@@ -1,16 +1,12 @@
 import styles from '../styles/Home.module.css'
-import { query } from '../services/mysql';
+import { pool } from '../services/mysql';
 import { useEffect } from 'react';
 
-export default function Home() {
-  async function test() {
-    const rows = await query('SELECT * FROM users');
-    console.log(rows);
-  }
+export default function Home({ rows }) {
 
   useEffect(() => {
-    test();
-  })
+    console.log(rows)
+  }, []);
 
   return (
     <>
@@ -18,3 +14,17 @@ export default function Home() {
     </>
   )
 }
+
+export const getServerSideProps = async (context) => {
+  // const res = await axios.get("http://localhost:3000/api/products");
+
+  const res = await pool.query('SELECT * FROM cycles');
+
+  const rows = JSON.stringify(res);
+
+  return {
+    props: {
+      rows
+    },
+  };
+};
