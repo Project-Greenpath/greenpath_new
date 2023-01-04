@@ -1,30 +1,20 @@
-import styles from '../styles/Home.module.css'
-import { pool } from '../services/mysql';
-import { useEffect } from 'react';
+import Link from 'next/link';
 
-export default function Home({ rows }) {
-
-  useEffect(() => {
-    console.log(rows)
-  }, []);
-
+export default function LandingPage() {
   return (
-    <>
-      hello
-    </>
-  )
+    <div>
+      <h1>Welcome to the Cycle Rental System!</h1>
+      <Link legacyBehavior href="/signup">
+        <a>Sign Up</a>
+      </Link>
+      <br />
+      <Link legacyBehavior href="/signin">
+        <a>Sign In</a>
+      </Link>
+      <br />
+      <Link legacyBehavior href="/listing">
+        <a>View Cycles</a>
+      </Link>
+    </div>
+  );
 }
-
-export const getServerSideProps = async (context) => {
-  // const res = await axios.get("http://localhost:3000/api/products");
-
-  const res = await pool.query('SELECT * FROM cycles');
-
-  const rows = JSON.stringify(res);
-
-  return {
-    props: {
-      rows
-    },
-  };
-};
