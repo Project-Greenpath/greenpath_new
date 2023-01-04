@@ -58,8 +58,8 @@ export default function Card({ id, brand, rent, image, description, created_at, 
                 <p style={styles.description}>{description}</p>
                 <div style={styles.info}>
                     <span style={styles.rent}>{rent}</span>
-                    <span style={styles.date}>{created_at}</span>
-                    <span style={styles.date}>{updated_at}</span>
+                    {/* <span style={styles.date}>{created_at}</span>
+                    <span style={styles.date}>{updated_at}</span> */}
                 </div>
             </div>
         </div>
