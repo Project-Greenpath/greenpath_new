@@ -4,48 +4,67 @@ import Router from 'next/router';
 import axios from 'axios';
 
 export default function SignIn({ rows }) {
+  const [formData, setFormData] = useState({});
+  const [error, setError] = useState('');
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    const [formData, setFormData] = useState({});
-    const [error, setError] = useState('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const ph = formData['phone'];
+      const pwd = formData['password'];
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    }
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const ph = formData["phone"];
-            const pwd = formData["password"];
-
-            rows.forEach(row => {
-                if (row.phone === ph) {
-                    if (pwd === row.password) {
-                        alert("Sign in success");
-                        Router.push('/addcycle');
-                    }
-                }
-            });
-
-            alert("Wrong phone or password, try again!");
-        } catch (error) {
-            setError(error.message);
+      rows.forEach((row) => {
+        if (row.phone === ph) {
+          if (pwd === row.password) {
+            alert('Sign in success');
+            Router.push('/addcycle');
+          }
         }
-    }
+      });
 
-    return (
-        <form onSubmit={handleSubmit}>
-            {error && <p>{error}</p>}
-            <label htmlFor="phone">Phone:</label>
-            <input type="text" name="phone" onChange={handleChange} />
-            <br />
-            <label htmlFor="password">Password:</label>
-            <input type="password" name="password" onChange={handleChange} />
-            <br />
-            <button type="submit">Sign In</button>
-        </form>
-    );
+      alert('Wrong phone or password, try again!');
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  return (
+    <div style={{ textAlign: 'center' }}>
+      <h1 style={{ fontSize: '24px', marginBottom: '20px' }}>Sign In</h1>
+      <form onSubmit={handleSubmit} style={{ display: 'inline-block' }}>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <label htmlFor="phone" style={{ display: 'block', marginBottom: '10px' }}>
+          Phone:
+          <input
+            type="text"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            style={{ width: '100%', marginTop: '10px' }}
+          />
+        </label>
+        <br />
+        <label htmlFor="password" style={{ display: 'block', marginBottom: '10px' }}>
+          Password:
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            style={{ width: '100%', marginTop: '10px' }}
+          />
+        </label>
+        <br />
+        <button type="submit" style={{ marginTop: '20px', padding: '10px 20px', fontSize: '16px' }}>
+          Sign In
+        </button>
+      </form>
+    </div>
+  );
 }
 
 export const getServerSideProps = async (context) => {
