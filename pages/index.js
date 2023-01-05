@@ -109,12 +109,6 @@ const Home = () => (
           <Link href="/">
             <li className="nav-item">Home</li>
           </Link>
-          <Link href="/about">
-            <li className="nav-item">About</li>
-          </Link>
-          <Link href="/contact">
-            <li className="nav-item">Contact Us</li>
-          </Link>
           <Link href="/signup">
             <li className="nav-item cta-secondary">Sign Up</li>
           </Link>
@@ -136,7 +130,7 @@ const Home = () => (
             perfect solution!
           </h2>
           <Link href="/listing">
-            <div className="cta">Get Started</div>
+            <div className="cta">View Available Cycles</div>
           </Link>
         </div>
         <div className="hero-right">
