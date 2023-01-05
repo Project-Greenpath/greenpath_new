@@ -22,12 +22,14 @@ import Link from 'next/link';
 
 export default function LandingPage() {
   const navbarStyles = {
-    display: 'flex',
-    justifyContent: 'flex-end',
+    display: 'grid',
+    placeItems: 'center',
+    gap: '2rem',
+    marginTop: '40px'
   };
 
   const navLinkStyles = {
-    marginLeft: '20px',
+    margin: '20px 20px 20px 20px'
   };
 
   const headerStyles = {
@@ -41,24 +43,33 @@ export default function LandingPage() {
     marginRight: '20px',
   };
 
+  const buttonStyle = {
+    padding: '10px'
+  }
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <nav style={navbarStyles}>
-        <Link legacyBehavior href="/signup">
-          <a style={navLinkStyles}>Sign Up</a>
-        </Link>
-        <Link legacyBehavior href="/signin">
-          <a style={navLinkStyles}>Sign In</a>
-        </Link>
-        <Link legacyBehavior href="/listing">
-          <a style={navLinkStyles}>View Cycles</a>
-        </Link>
-      </nav>
+    <div style={{ minHeight: '90vh', margin: '10vh 0 0 0', display: 'flex', flexDirection: 'column' }}>
       <div style={headerStyles}>
         {/* <img src="/bicycle.png" alt="Bicycle Illustration" style={imageStyles} /> */}
         {/* <h1>Greenpath</h1> */}
         <h1>Welcome to the Cycle Rental System!</h1>
       </div>
+      <nav style={navbarStyles}>
+        <button style={buttonStyle}>
+          <Link legacyBehavior href="/signup">
+            <a style={navLinkStyles}>Sign Up</a>
+          </Link></button>
+        <button style={buttonStyle}>
+          <Link legacyBehavior href="/signin">
+            <a style={navLinkStyles}>Sign In</a>
+          </Link>
+        </button>
+        <button style={buttonStyle}>
+          <Link legacyBehavior href="/listing">
+            <a style={navLinkStyles}>View Cycles</a>
+          </Link>
+        </button>
+      </nav>
     </div>
   );
 }
