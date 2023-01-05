@@ -47,6 +47,10 @@ export default function LandingPage() {
     padding: '10px'
   }
 
+  const imgStyle = {
+    width: '40vw'
+  }
+
   return (
     <div style={{ minHeight: '90vh', margin: '10vh 0 0 0', display: 'flex', flexDirection: 'column' }}>
       <div style={headerStyles}>
@@ -54,22 +58,28 @@ export default function LandingPage() {
         {/* <h1>Greenpath</h1> */}
         <h1>Welcome to the Cycle Rental System!</h1>
       </div>
-      <nav style={navbarStyles}>
-        <button style={buttonStyle}>
-          <Link legacyBehavior href="/signup">
-            <a style={navLinkStyles}>Sign Up</a>
-          </Link></button>
-        <button style={buttonStyle}>
-          <Link legacyBehavior href="/signin">
-            <a style={navLinkStyles}>Sign In</a>
-          </Link>
-        </button>
-        <button style={buttonStyle}>
-          <Link legacyBehavior href="/listing">
-            <a style={navLinkStyles}>View Cycles</a>
-          </Link>
-        </button>
-      </nav>
-    </div>
+      <div>
+
+        <nav style={navbarStyles}>
+          <button style={buttonStyle}>
+            <Link legacyBehavior href="/signup">
+              <a style={navLinkStyles}>Sign Up</a>
+            </Link></button>
+          <button style={buttonStyle}>
+            <Link legacyBehavior href="/signin">
+              <a style={navLinkStyles}>Sign In</a>
+            </Link>
+          </button>
+          <button style={buttonStyle}>
+            <Link legacyBehavior href="/listing">
+              <a style={navLinkStyles}>View Cycles</a>
+            </Link>
+          </button>
+        </nav>
+        <img style={
+          imgStyle
+        } src="https://raw.githubusercontent.com/Project-Greenpath/greenpath/main/public/images/hero2.svg"></img>
+      </div>
+    </div >
   );
 }
