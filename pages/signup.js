@@ -69,26 +69,26 @@ export default function SignUp() {
         <div style={signupStyle}>
             <form style={formStyle} onSubmit={handleSubmit}>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
-                <label htmlFor="id">ID:</label>
-                <input type="text" name="id" onChange={handleChange} required />
+                <label htmlFor="id">Admission Number:</label>
+                <input type="text" name="id" onChange={handleChange} required pattern='\d{6}' title='Must be a 6 digit number' placeholder='Ex - 190257' />
                 <br />
                 <label htmlFor="collegeid">College ID:</label>
-                <input type="text" name="collegeid" onChange={handleChange} required />
+                <input type="text" name="collegeid" onChange={handleChange} required pattern='TVE\d{2}\w{2}\d{3}' title='Must be of the form TVE19CS001' placeholder='Ex - TVE19CS011' />
                 <br />
                 <label htmlFor="full_name">Full Name:</label>
-                <input type="text" name="full_name" onChange={handleChange} required />
+                <input type="text" name="full_name" onChange={handleChange} required pattern='[a-zA-Z0-9 ]+' title='Must be a string' placeholder='Ex - John Doe' />
                 <br />
                 <label htmlFor="department">Department:</label>
-                <input type="text" name="department" onChange={handleChange} required />
+                <input type="text" name="department" onChange={handleChange} required pattern='\w{3}' title='Must be 3 characters to represent each branch' placeholder='Ex - CSE' />
                 <br />
                 <label htmlFor="yog">Year of Graduation:</label>
-                <input type="text" name="yog" onChange={handleChange} required />
+                <input type="text" name="yog" onChange={handleChange} required pattern='\d{4}' title="Must be 4 digit number represeting year" placeholder='Ex - 2023' />
                 <br />
                 <label htmlFor="phone">Phone:</label>
-                <input type="text" name="phone" onChange={handleChange} required />
+                <input type="text" name="phone" onChange={handleChange} required pattern='\d{10}' title="Must be 10 digit number" placeholder='Ex - 8449432111' />
                 <br />
                 <label htmlFor="password">Password:</label>
-                <input type="password" name="password" onChange={handleChange} required />
+                <input type="password" name="password" onChange={handleChange} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
                 <br />
                 <button style={buttonStyle} type="submit">Sign Up</button>
             </form>
