@@ -173,7 +173,7 @@ export default function AddCycle() {
         />
         <br />
         <label style={labelInputStyles} htmlFor="image">
-          Image URL:
+          Upload Image:
         </label>
         <input
           style={labelInputStyles}

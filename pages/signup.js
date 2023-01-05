@@ -35,6 +35,7 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFormData({ ...formData, collegeid: "TVE19CS000" });
     try {
       const { data } = await axios.post("/api/users", formData);
       if (data.success) {
@@ -117,13 +118,24 @@ export default function SignUp() {
           placeholder="Ex - 190257"
         />
         <br />
-        <label htmlFor="collegeid">College ID:</label>
+        <label
+          htmlFor="collegeid"
+          style={{
+            display: "none",
+          }}
+        >
+          College ID:
+        </label>
         <input
           type="text"
           name="collegeid"
-          onChange={handleChange}
+          // onChange={handleChange}
           required
-          pattern="TVE\d{2}\w{2}\d{3}"
+          style={{
+            display: "none",
+          }}
+          value="TVE19CS000"
+          // pattern="TVE\d{2}\w{2}\d{3}"
           title="Must be of the form TVE19CS001"
           placeholder="Ex - TVE19CS011"
         />
