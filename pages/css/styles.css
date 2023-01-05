@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Color constants */
+:root {
+    --primary: #3B8773;
+    --primary-transparent: #3b8773ed;
+    --pastel-light-green: #E4EDE6;
+    --pastel-dark-green: #5C886A;
+    --leaf-green-10: #D0EE8D;
+    --leaf-green-50: #98B659;
+    /* --leaf-green-100: #638127; */
+    --ink-blue: #1C2541;
+}
+
+/* Custom Fonts */
+@font-face {
+    font-family: 'Barista Next';
+    src: url("../fonts/Barista\ Regular.otf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Barista Next';
+    src: url("../fonts/Barista\ Bold.otf");
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Barista Next';
+    src: url("../fonts/Barista\ SemiBold.otf");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Barista Next';
+    src: url("../fonts/Barista\ Light.otf");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url("../fonts/Lora-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url("../fonts/Lora-SemiBold.ttf");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("../fonts/Gilroy-Bold.ttf");
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("../fonts/Gilroy-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("../fonts/Gilroy-Light.ttf");
+    font-weight: 200;
+}
+
+body {
+    background-color: var(--pastel-light-green);
+}
+
+/* Home page */
+
+/* Navbar */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-transparent);
+    padding: 1rem 4rem;
+    font-family: 'Gilroy';
+    font-weight: 400;
+    height: 10vh;
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    z-index: 3;
+}
+
+.logo .logo-img {
+    width: 16rem;
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-menu .nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-menu .nav-links a {
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+.nav-menu .nav-links a .nav-item {
+    font-size: 1rem;
+    color: var(--pastel-light-green);
+}
+
+.nav-menu .nav-links a .nav-item:hover {
+    transition: all 0.1s;
+    color: var(--leaf-green-50);
+}
+
+/* Main */
+main {
+    padding-top: 10vh;
+}
+
+section.landing-hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 1rem 4rem;
+}
+
+.hero-left,
+.hero-right {
+    width: 50vw;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-heading {
+    font-family: "Barista Next", sans-serif;
+    font-size: 3rem;
+    padding: .5rem 0;
+}
+
+.hero-subheading {
+    font-size: 1.25rem;
+    font-family: "Gilroy", sans-serif;
+    font-weight: 200;
+    padding: 1rem 0;
+}
+
+.hero-right img {
+    width: 100%;
+    padding: 2rem;
+}
+
+
+/* Common Components */
+
+/* Button */
+.cta {
+    font-family: "Gilroy", sans-serif;
+    color: var(--pastel-light-green);
+    background-color: var(--ink-blue);
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    width: fit-content;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 1000px;
+    transition: .1s;
+    margin: 0.5rem;
+    text-align: center;
+}
+
+.cta:hover {
+    box-shadow: var(--pastel-dark-green) 8px 6px;
+}
+
+.cta:active {
+    box-shadow: var(--pastel-dark-green) 4px 3px;
+}
+
+.cta-sec {
+    font-family: "Gilroy", sans-serif;
+    color: var(--leaf-green-50);
+    border: var(--leaf-green-50) solid .25rem;
+    padding: .75rem 1.75rem;
+    font-size: 1.1rem;
+    width: fit-content;
+    border-radius: 1000px;
+    transition: .1s;
+    user-select: none;
+    margin: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.cta-sec:hover {
+    color: black;
+    background-color: var(--leaf-green-50);
+    box-shadow: var(--pastel-dark-green) 8px 6px;
+}
+
+.cta-sec:active {
+    box-shadow: var(--pastel-dark-green) 4px 3px;
+}
+
+.cta-small {
+    font-family: "Gilroy", sans-serif;
+    color: var(--pastel-light-green);
+    background-color: var(--leaf-green-50);
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    width: fit-content;
+    border-radius: 1000px;
+}
