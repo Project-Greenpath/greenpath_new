@@ -47,31 +47,51 @@ export default function SignUp() {
         }
     }
 
+    const signupStyle = {
+        display: 'grid',
+        placeItems: 'center',
+        minHeight: '100vh'
+    }
+
+    const formStyle = {
+        minHeight: '80vh',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '5px',
+    }
+
+    const buttonStyle = {
+        marginTop: '20px',
+        padding: '10px'
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
-            {error && <p>{error}</p>}
-            <label htmlFor="id">ID:</label>
-            <input type="text" name="id" onChange={handleChange} />
-            <br />
-            <label htmlFor="collegeid">College ID:</label>
-            <input type="text" name="collegeid" onChange={handleChange} />
-            <br />
-            <label htmlFor="full_name">Full Name:</label>
-            <input type="text" name="full_name" onChange={handleChange} />
-            <br />
-            <label htmlFor="department">Department:</label>
-            <input type="text" name="department" onChange={handleChange} />
-            <br />
-            <label htmlFor="yog">Year of Graduation:</label>
-            <input type="text" name="yog" onChange={handleChange} />
-            <br />
-            <label htmlFor="phone">Phone:</label>
-            <input type="text" name="phone" onChange={handleChange} />
-            <br />
-            <label htmlFor="password">Password:</label>
-            <input type="password" name="password" onChange={handleChange} />
-            <br />
-            <button type="submit">Sign Up</button>
-        </form>
+        <div style={signupStyle}>
+            <form style={formStyle} onSubmit={handleSubmit}>
+                {error && <p style={{ color: 'red' }}>{error}</p>}
+                <label htmlFor="id">ID:</label>
+                <input type="text" name="id" onChange={handleChange} required />
+                <br />
+                <label htmlFor="collegeid">College ID:</label>
+                <input type="text" name="collegeid" onChange={handleChange} required />
+                <br />
+                <label htmlFor="full_name">Full Name:</label>
+                <input type="text" name="full_name" onChange={handleChange} required />
+                <br />
+                <label htmlFor="department">Department:</label>
+                <input type="text" name="department" onChange={handleChange} required />
+                <br />
+                <label htmlFor="yog">Year of Graduation:</label>
+                <input type="text" name="yog" onChange={handleChange} required />
+                <br />
+                <label htmlFor="phone">Phone:</label>
+                <input type="text" name="phone" onChange={handleChange} required />
+                <br />
+                <label htmlFor="password">Password:</label>
+                <input type="password" name="password" onChange={handleChange} required />
+                <br />
+                <button style={buttonStyle} type="submit">Sign Up</button>
+            </form>
+        </div>
     );
 }
