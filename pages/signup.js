@@ -68,27 +68,27 @@ export default function SignUp() {
     return (
         <div style={signupStyle}>
             <form style={formStyle} onSubmit={handleSubmit}>
-                {error && <p>{error}</p>}
+                {error && <p style={{ color: 'red' }}>{error}</p>}
                 <label htmlFor="id">ID:</label>
-                <input type="text" name="id" onChange={handleChange} />
+                <input type="text" name="id" onChange={handleChange} required />
                 <br />
                 <label htmlFor="collegeid">College ID:</label>
-                <input type="text" name="collegeid" onChange={handleChange} />
+                <input type="text" name="collegeid" onChange={handleChange} required />
                 <br />
                 <label htmlFor="full_name">Full Name:</label>
-                <input type="text" name="full_name" onChange={handleChange} />
+                <input type="text" name="full_name" onChange={handleChange} required />
                 <br />
                 <label htmlFor="department">Department:</label>
-                <input type="text" name="department" onChange={handleChange} />
+                <input type="text" name="department" onChange={handleChange} required />
                 <br />
                 <label htmlFor="yog">Year of Graduation:</label>
-                <input type="text" name="yog" onChange={handleChange} />
+                <input type="text" name="yog" onChange={handleChange} required />
                 <br />
                 <label htmlFor="phone">Phone:</label>
-                <input type="text" name="phone" onChange={handleChange} />
+                <input type="text" name="phone" onChange={handleChange} required />
                 <br />
                 <label htmlFor="password">Password:</label>
-                <input type="password" name="password" onChange={handleChange} />
+                <input type="password" name="password" onChange={handleChange} required />
                 <br />
                 <button style={buttonStyle} type="submit">Sign Up</button>
             </form>
