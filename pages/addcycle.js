@@ -1,11 +1,68 @@
 import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router'
+
+import { pinFileToIPFS, pinMetadataToIPFS } from '../services/ipfs';
 
 export default function AddCycle() {
 
     const [formData, setFormData] = useState({});
     const [error, setError] = useState('');
+
+    const [fileUrl, setFileUrl] = useState(null)
+    const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
+    const [file, setFile] = useState(null)
+    const router = useRouter()
+
+    function onFileChange(e) {
+        const file = e.target.files[0]
+        setFile(file);
+        onUpload();
+    }
+
+    async function onUpload(e) {
+        /* upload image to IPFS */
+        // const file = e.target.files[0]
+        try {
+            const url = await pinFileToIPFS(file);
+
+            // const url = `https://ipfs.infura.io/ipfs/${added.path}`
+            console.log(url, " fileURL")
+            setFormData({ ...formData, "image": url });
+            console.log(url, " URL")
+            alert(`fileURL: ${url}`)
+
+        } catch (error) {
+            <inputs
+                type="file"
+                name="Asset"
+                className="my-4"
+                onChange={onFileChange}
+            />
+            console.log('Error uploading file: ', error)
+        }
+    }
+    async function uploadToIPFS() {
+        const { name, description, price } = formInput
+        console.log(fileUrl, " fileurl")
+        if (!name || !description || !price || !fileUrl) return
+        /* first, upload metadata to IPFS */
+        const data = {
+            name: name,
+            description: description,
+            image: fileUrl
+        }
+        try {
+            const url = await pinMetadataToIPFS(data);
+            /* after metadata is uploaded to IPFS, return the URL to use it in the transaction */
+            console.log(url)
+            return url
+        } catch (error) {
+            console.log('Error uploading file: ', error)
+        }
+    }
+
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -57,7 +114,7 @@ export default function AddCycle() {
             <input style={labelInputStyles} type="text" name="rent" onChange={handleChange} />
             <br />
             <label style={labelInputStyles} htmlFor="image">Image URL:</label>
-            <input style={labelInputStyles} type="text" name="image" onChange={handleChange} />
+            <input style={labelInputStyles} type="file" name="image" onChange={onFileChange} />
             <br />
             <label style={labelInputStyles} htmlFor="description">Contact Details:</label>
             <input style={labelInputStyles} type="text" name="description" onChange={handleChange} />
