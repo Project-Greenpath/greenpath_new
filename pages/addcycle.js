@@ -25,10 +25,46 @@ export default function AddCycle() {
         }
     }
 
+    const formStyles = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '50%',
+        margin: '0 auto',
+    };
+
+    const labelInputStyles = {
+        margin: '10px 0',
+    };
+
+    const buttonStyles = {
+        marginTop: '20px',
+    };
+
+
     return (
         <form onSubmit={handleSubmit}>
             {error && <p>{error}</p>}
-            <label htmlFor="id">ID:</label>
+            <form style={formStyles}>
+                <label style={labelInputStyles} htmlFor="id">ID:</label>
+                <input style={labelInputStyles} type="text" name="id" onChange={handleChange} />
+                <br />
+                <label style={labelInputStyles} htmlFor="brand">Brand:</label>
+                <input style={labelInputStyles} type="text" name="brand" onChange={handleChange} />
+                <br />
+                <label style={labelInputStyles} htmlFor="rent">Rent:</label>
+                <input style={labelInputStyles} type="text" name="rent" onChange={handleChange} />
+                <br />
+                <label style={labelInputStyles} htmlFor="image">Image URL:</label>
+                <input style={labelInputStyles} type="text" name="image" onChange={handleChange} />
+                <br />
+                <label style={labelInputStyles} htmlFor="description">Contact Details:</label>
+                <input style={labelInputStyles} type="text" name="description" onChange={handleChange} />
+                <br />
+                <button style={buttonStyles} type="submit">Add New Cycle</button>
+            </form>
+
+            {/* <label htmlFor="id">ID:</label>
             <input type="text" name="id" onChange={handleChange} />
             <br />
             <label htmlFor="brand">Brand:</label>
@@ -43,7 +79,8 @@ export default function AddCycle() {
             <label htmlFor="description">Contact Details:</label>
             <input type="text" name="description" onChange={handleChange} />
             <br />
-            <button type="submit">Add Cycle</button>
+            <button type="submit">Add Cycle</button> */}
+
         </form>
     );
 }
