@@ -45,26 +45,24 @@ export default function AddCycle() {
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form style={formStyles} onSubmit={handleSubmit}>
             {error && <p>{error}</p>}
-            <form style={formStyles}>
-                <label style={labelInputStyles} htmlFor="id">ID:</label>
-                <input style={labelInputStyles} type="text" name="id" onChange={handleChange} />
-                <br />
-                <label style={labelInputStyles} htmlFor="brand">Brand:</label>
-                <input style={labelInputStyles} type="text" name="brand" onChange={handleChange} />
-                <br />
-                <label style={labelInputStyles} htmlFor="rent">Rent:</label>
-                <input style={labelInputStyles} type="text" name="rent" onChange={handleChange} />
-                <br />
-                <label style={labelInputStyles} htmlFor="image">Image URL:</label>
-                <input style={labelInputStyles} type="text" name="image" onChange={handleChange} />
-                <br />
-                <label style={labelInputStyles} htmlFor="description">Contact Details:</label>
-                <input style={labelInputStyles} type="text" name="description" onChange={handleChange} />
-                <br />
-                <button style={buttonStyles} type="submit">Add New Cycle</button>
-            </form>
+            <label style={labelInputStyles} htmlFor="id">ID:</label>
+            <input style={labelInputStyles} type="text" name="id" onChange={handleChange} />
+            <br />
+            <label style={labelInputStyles} htmlFor="brand">Brand:</label>
+            <input style={labelInputStyles} type="text" name="brand" onChange={handleChange} />
+            <br />
+            <label style={labelInputStyles} htmlFor="rent">Rent:</label>
+            <input style={labelInputStyles} type="text" name="rent" onChange={handleChange} />
+            <br />
+            <label style={labelInputStyles} htmlFor="image">Image URL:</label>
+            <input style={labelInputStyles} type="text" name="image" onChange={handleChange} />
+            <br />
+            <label style={labelInputStyles} htmlFor="description">Contact Details:</label>
+            <input style={labelInputStyles} type="text" name="description" onChange={handleChange} />
+            <br />
+            <button style={buttonStyles} type="submit">Add New Cycle</button>
 
             {/* <label htmlFor="id">ID:</label>
             <input type="text" name="id" onChange={handleChange} />
